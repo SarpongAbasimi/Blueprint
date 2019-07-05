@@ -1,1 +1,3 @@
 /todoenv
+.pytest_cache
+.vscode
