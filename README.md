@@ -2,15 +2,13 @@
  BluePrint
 </h1>
 
-## Features
+## Motivation: Goals for the Project.
 
-
-## Motivation: What are my goals for this project?
-
-- Learn how to structure a ``Flask `` project using BluePrints.
+- Learn how to structure a ``Flask `` project using Blueprints.
 - TDD a Flask  App.
 
 ## Tech Stack
 
 - Python 3
 - Flask
+- pytest
