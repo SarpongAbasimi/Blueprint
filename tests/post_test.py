@@ -8,4 +8,4 @@ class TestPost(object):
   
   def test_post_new_contains_a_message(self, client):
     response = client.get('/new')
-    assert response.data == b"What is on your mind"
+    assert b'What is on your mind' in response.data
