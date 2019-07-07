@@ -15,4 +15,8 @@ class Testing(Config):
   TESTING = True
   TEST_DB = os.getenv('TEST_DATABASE_URI')
 
-  
+
+configs = {
+  'development': Development,
+  'testing': Testing
+}
