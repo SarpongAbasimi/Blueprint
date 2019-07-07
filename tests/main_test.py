@@ -15,12 +15,6 @@ class TestMainRoutes():
 
   def test_index_page_content(self, response):
     assert b'Welcome To The Home Page' in response.data
-  
-  # @pytest.mark.parametrize('data', [('I need to go shopping'), ('I have to do my homework')])
-  # def test_post_data_to_home_page(client, data):
-  #   response = client.post('/', data, follow_redirects=True)
-  #   print(response.data)
-
 
 
 
