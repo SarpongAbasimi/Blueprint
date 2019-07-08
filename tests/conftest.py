@@ -1,8 +1,8 @@
 import pytest
-from app import current_app
+from app import current_app, db
 
 @pytest.fixture(autouse=True)
 def client():
-  current_app().config['Testing'] = True
-  client = current_app().test_client()
+  test_env = current_app('testing')
+  client = test_env.test_client()
   return client
