@@ -9,11 +9,11 @@ class Config:
 
 class Development(Config):
   DEBUG = True
-  DATABASE_URI = os.getenv('DEVELOPMENT_DATABASE_URI')
+  SQLALCHEMY_DATABASE_URI = os.getenv('DEVELOPMENT_DATABASE_URI')
 
 class Testing(Config):
   TESTING = True
-  TEST_DB = os.getenv('TEST_DATABASE_URI')
+  SQLALCHEMY_DATABASE_URI = os.getenv('TEST_DATABASE_URI')
 
 
 configs = {
