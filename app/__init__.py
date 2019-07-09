@@ -8,6 +8,7 @@ db = SQLAlchemy()
 def create_app(config_name='development'):
   app = Flask(__name__)
   app.config.from_object(configs.get(config_name))
+
   db.init_app(app)
   
   from app.main.routes import main
@@ -15,5 +16,6 @@ def create_app(config_name='development'):
 
   app.register_blueprint(main)
   app.register_blueprint(post)
+  
   return app
 
