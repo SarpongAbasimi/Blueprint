@@ -1,5 +1,8 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, request
 from .forms import PostForm
+from app import db
+from app.models import Todo
+
 
 post = Blueprint('post', __name__)
 
@@ -11,6 +14,10 @@ def new():
 @post.route('/create', methods=['POST'])
 def create():
   post_form = PostForm()
+  if request.method == 'POST' and post_form.validate_on_submit():
+    to_do = Todo(content = post_form.todo.data)
+    db.session.add(to_do)
+    db.session.commit()
   return redirect(url_for('main.index'))
 
 
