@@ -1,7 +1,7 @@
 import pytest
 from app import create_app, db
 
-@pytest.fixture(autouse=True)
+@pytest.fixture()
 def client():
   test_env = create_app('testing')
 
@@ -9,5 +9,7 @@ def client():
   db.create_all()
 
   client = test_env.test_client()
-  
+
   yield client
+
+  db.drop_all()
