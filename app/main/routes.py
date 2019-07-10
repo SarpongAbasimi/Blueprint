@@ -5,5 +5,5 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-  todos = Todo.queey.all()
+  todos = Todo.query.all()
   return render_template('index.html', todos=todos)
