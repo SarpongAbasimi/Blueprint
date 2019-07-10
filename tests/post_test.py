@@ -1,8 +1,9 @@
 import pytest
 from app.posts.routes import post
 
-class TestPost(object):
 
+class TestPost(object):
+  
   def test_post_new_route_exits(self, client):
     response = client.get('/new')
     assert response.status_code == 200
@@ -15,12 +16,11 @@ class TestPost(object):
     post_message = client.post('/create',
     data = dict(todo='go to sch'),
     follow_redirects=True)
-    print(post_message.data)
     assert b'go to sch' in  post_message.data
-
-  @pytest.mark.skip(reason='I need a better understanding of how to set up a config file')
-  def test_post_is_stored_shown_on_index_page(self, client):
-    post_message = client.post('/create', data=('I need to go shopping'),follow_redirects=True)
+  
+  @pytest.mark.parametrize('todolist', [{'todo': 'I need to go shopping'}])
+  def test_post_is_stored_shown_on_index_page(self, client, todolist):
+    post_message = client.post('/create', 
+    data=todolist,
+    follow_redirects=True)
     assert b'I need to go shopping' in post_message.data
-  
-  
