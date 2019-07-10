@@ -1,6 +1,6 @@
 import pytest
 
-@pytest.fixture(autouse=True)
+@pytest.fixture()
 def response(client):
   response = client.get('/')
   return response

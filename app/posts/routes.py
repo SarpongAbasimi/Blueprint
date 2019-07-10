@@ -18,7 +18,7 @@ def create():
     to_do = Todo(content = post_form.todo.data)
     db.session.add(to_do)
     db.session.commit()
-  return redirect(url_for('main.index'))
+    return redirect(url_for('main.index'))
 
 
 
