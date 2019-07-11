@@ -1,5 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<span>{{ data.content }}</span>
+{% if data %}
+  <span>{{ data.content }}</span>
+{% else %}
+  <span> Sorry, the post was not found</span>
+  <p><a href={{ url_for('main.index')}}>Back to home</a></p>
+{% endif%}
 {% endblock content %}
