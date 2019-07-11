@@ -24,3 +24,12 @@ class TestPost(object):
     data=todolist,
     follow_redirects=True)
     assert b'I need to go shopping' in post_message.data
+
+  @pytest.mark.parametrize('todolist', [{'todo': 'I need to buy some food'}])
+  def test_shows_post_when_passed_id(self, client, todolist):
+    post_message = client.post('/create', 
+    data=todolist,
+    follow_redirects=True)
+    
+    response = client.get('/1')
+    assert b'I need to buy some food' in response.data
