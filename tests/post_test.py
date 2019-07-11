@@ -11,6 +11,7 @@ class TestPost(object):
   def test_post_new_contains_a_message(self, client):
     response = client.get('/new')
     assert b'What is on your mind?' in response.data
+    assert b'Back to home' in response.data
     
   def test_post_new_allow_user_to_post_toDo_(self, client):
     post_message = client.post('/create',
@@ -30,6 +31,11 @@ class TestPost(object):
     post_message = client.post('/create', 
     data=todolist,
     follow_redirects=True)
-    
+
     response = client.get('/1')
     assert b'I need to buy some food' in response.data
+
+  def test_shows_post_when_passed_id(self, client):
+    response = client.get('/9')
+    assert b'Sorry, the post was not found' in response.data
+    assert b'Back to home' in response.data
