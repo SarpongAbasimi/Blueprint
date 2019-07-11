@@ -15,3 +15,6 @@ class TestMainRoutes():
 
   def test_index_page_content(self, response):
     assert b'Welcome To The Home Page' in response.data
+  
+  def test_to_see_create_new_post_on_page(self, response):
+    assert b'create post' in response.data

@@ -17,7 +17,6 @@ class Testing(Config):
   WTF_CSRF_ENABLED = False
   SQLALCHEMY_DATABASE_URI = os.getenv('TEST_DATABASE_URI') or 'sqlite:///database/clitest.db'
 
-
 configs = {
   'development': Development,
   'testing': Testing
