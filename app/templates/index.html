@@ -6,7 +6,7 @@
   {% if todos| length > 0 %}
     <ul>
       {% for todo in todos %}
-        <li>{{ todo.content }}</li>
+        <li><a href={{ url_for('post.show', id=todo.id )}}>{{ todo.content }}</a></li>
       {% endfor %}
     </ul>
   {% endif%}
