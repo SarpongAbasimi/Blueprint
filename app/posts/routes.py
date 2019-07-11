@@ -20,6 +20,11 @@ def create():
     db.session.commit()
     return redirect(url_for('main.index'))
 
+@post.route('/<int:id>')
+def show(id):
+  data = Todo.query.filter_by(id=id).first()
+  return render_template('show.html', data=data)
+
 
 
 
