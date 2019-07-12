@@ -27,7 +27,7 @@ def show(id):
 
 @post.route('/<int:id>/edit')
 def edit(id):
-  return 'This is the edit page'
+  return render_template('edit.html')
 
 
 
