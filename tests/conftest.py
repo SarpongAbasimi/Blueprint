@@ -4,7 +4,6 @@ from app.models import Todo
 
 @pytest.fixture(scope='function')
 def client():
-  print('******************')
   """ set the app to use testing environemnt """
   test_env = create_app('testing')
 
