@@ -33,7 +33,12 @@ def edit(id):
 
 @post.route('/<int:id>', methods=['POST'])
 def update(id):
+  form = PostForm()
+  new_update = Todo.query.filter_by(id=id).first()
+  new_update.content = form.todo.data 
+  db.session.commit()
   return redirect(url_for('main.index'))
+
 
 
 

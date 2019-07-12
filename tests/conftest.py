@@ -2,8 +2,9 @@ import pytest
 from app import create_app, db
 from app.models import Todo
 
-@pytest.fixture()
+@pytest.fixture(scope='function')
 def client():
+  print('******************')
   """ set the app to use testing environemnt """
   test_env = create_app('testing')
 
