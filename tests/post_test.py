@@ -3,7 +3,6 @@ from app.posts.routes import post
 
 
 class TestPost(object):
-  
   def test_post_new_route_exits(self, client):
     response = client.get('/new')
     assert response.status_code == 200
@@ -27,15 +26,15 @@ class TestPost(object):
     assert b'I need to go shopping' in post_message.data
 
   @pytest.mark.parametrize('todolist', [{'todo': 'I need to buy some food'}])
-  def test_shows_post_when_passed_id(self, client, todolist):
+  def test_shows_post_when_passed_an_id(self, client, todolist):
     post_message = client.post('/create', 
     data=todolist,
     follow_redirects=True)
-
+    
     response = client.get('/1')
     assert b'I need to buy some food' in response.data
 
   def test_shows_post_when_passed_id(self, client):
-    response = client.get('/9')
+    response = client.get('/1')
     assert b'Sorry, the post was not found' in response.data
     assert b'Back to home' in response.data
