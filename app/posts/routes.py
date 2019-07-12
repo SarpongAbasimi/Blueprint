@@ -27,9 +27,12 @@ def show(id):
 
 @post.route('/<int:id>/edit')
 def edit(id):
-  return render_template('edit.html')
+  edit_form = PostForm()
+  return render_template('edit.html', edit_form=edit_form)
 
-
+@post.route('/<int:id>', methods=['POST'])
+def update(id):
+  return redirect('main.index')
 
 
 
