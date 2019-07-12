@@ -3,7 +3,6 @@ from .forms import PostForm
 from app import db
 from app.models import Todo
 
-
 post = Blueprint('post', __name__)
 
 @post.route('/new', methods=['GET'])
@@ -28,7 +27,9 @@ def show(id):
 @post.route('/<int:id>/edit')
 def edit(id):
   edit_form = PostForm()
-  return render_template('edit.html', edit_form=edit_form)
+  get_todo_data = Todo.query.filter_by(id=id).first()
+  edit_form.todo.data = get_todo_data.content
+  return render_template('edit.html', edit_form=edit_form, id=id)
 
 @post.route('/<int:id>', methods=['POST'])
 def update(id):
