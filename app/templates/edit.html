@@ -3,8 +3,9 @@
 {% block content %}
   <p>This is the edit page</p>
   <div>
-    <form>
-      
+    <form action={{ url_for('post.update', id=id) }} method="POST">
+      {{ edit_form.todo }}
+      {{ edit_form.submit }}
     </form>
   </div>
 {% endblock content %}
