@@ -3,6 +3,7 @@
 {% block content %}
 {% if data %}
   <span>{{ data.content }}</span>
+  <p><a href={{ url_for('post.edit', id=data.id )}}>edit</a></p>
 {% else %}
   <span> Sorry, the post was not found</span>
   <p><a href={{ url_for('main.index')}}>Back to home</a></p>
