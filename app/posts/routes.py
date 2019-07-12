@@ -33,7 +33,7 @@ def edit(id):
 
 @post.route('/<int:id>', methods=['POST'])
 def update(id):
-  return redirect('main.index')
+  return redirect(url_for('main.index'))
 
 
 
