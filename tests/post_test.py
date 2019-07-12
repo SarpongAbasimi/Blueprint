@@ -43,3 +43,12 @@ class TestPost(object):
   def test_edit_page(self, client):
     response = client.get('/1/edit')
     assert b'This is the edit page' in response.data
+
+  @pytest.mark.parametrize('new_todo', [{'todo': 'I need to sing a song'}])
+  def test_post_can_be_updated(self, client, new_todo):
+    response = client.post('/create',
+    data= new_todo,
+    follow_redirects=True)
+
+    updatate_post = client.post('/1')
+    assert updatate_post.status_code == 302
