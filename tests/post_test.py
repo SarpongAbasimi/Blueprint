@@ -33,8 +33,13 @@ class TestPost(object):
     
     response = client.get('/1')
     assert b'I need to buy some food' in response.data
+    assert b'edit' in response.data
 
   def test_shows_post_when_passed_id(self, client):
     response = client.get('/1')
     assert b'Sorry, the post was not found' in response.data
     assert b'Back to home' in response.data
+  
+  def test_edit_page(self, client):
+    response = client.get('/1/edit')
+    assert b'This is the edit page' in response.data

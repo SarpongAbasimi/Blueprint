@@ -25,6 +25,10 @@ def show(id):
   data = Todo.query.filter_by(id=id).first()
   return render_template('show.html', data=data)
 
+@post.route('/<int:id>/edit')
+def edit(id):
+  return 'This is the edit page'
+
 
 
 
