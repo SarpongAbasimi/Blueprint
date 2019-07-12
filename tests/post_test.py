@@ -47,6 +47,7 @@ class TestPost(object):
     follow_redirects = True)
     response = client.get('/1/edit')
     assert b'This is the edit page' in response.data
+    assert b'cancel' in response.data
 
   @pytest.mark.parametrize('new_todo', [{'todo': 'I need to sing a song'}])
   def test_post_can_be_updated(self, client, new_todo):
