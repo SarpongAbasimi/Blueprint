@@ -39,8 +39,12 @@ class TestPost(object):
     response = client.get('/1')
     assert b'Sorry, the post was not found' in response.data
     assert b'Back to home' in response.data
-  
-  def test_edit_page(self, client):
+
+  @pytest.mark.parametrize('new_todo', [{'todo': 'Make my test pass'}])
+  def test_edit_page(self, client, new_todo):
+    create_post = client.post('/create',
+    data = new_todo,
+    follow_redirects = True)
     response = client.get('/1/edit')
     assert b'This is the edit page' in response.data
 
