@@ -39,6 +39,11 @@ def update(id):
   db.session.commit()
   return redirect(url_for('main.index'))
 
-
+@post.route('/delete/<int:id>')
+def destroy(id):
+  delete_todo = Todo.query.filter_by(id=id).first()
+  db.session.delete(delete_todo)
+  db.session.commit()
+  return redirect(url_for('main.index'))
 
 

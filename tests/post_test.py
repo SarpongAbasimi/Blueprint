@@ -61,3 +61,10 @@ class TestPost(object):
     
     assert updatate_post.status_code == 200
     assert b'I need to make a food app' in updatate_post.data
+  
+  def test_post_can_be_deleted(self, client):
+    post_message = client.post('/create',
+    data=dict(todo='I need to purchase pizza'),
+    follow_redirects= True)
+    response = client.get('/delete/1')
+    assert b'I need to purchase pizza' not in response.data
