@@ -44,6 +44,6 @@ def destroy(id):
   delete_todo = Todo.query.filter_by(id=id).first()
   db.session.delete(delete_todo)
   db.session.commit()
-  return redirect('main.index')
+  return redirect(url_for('main.index'))
 
 
