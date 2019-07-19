@@ -1,8 +1,7 @@
 {% extends 'layout.html' %}
 
 {%block content%}
-<h1>Welcome To The Home Page</h1>
-<div>
+<div class="container">
   {% if todos| length > 0 %}
     <ul>
       {% for todo in todos %}
@@ -10,6 +9,6 @@
       {% endfor %}
     </ul>
   {% endif%}
-  <span><a href={{ url_for('post.new') }}>create post</a></span>
+  <span class='links'><a href={{ url_for('post.new') }}>create post</a></span>
 </div>
 {%endblock content%}

@@ -1,0 +1,22 @@
+
+body{
+  background-color: #F3F4F5;
+}
+
+.links{
+  background-color: red;
+  padding:5px;
+  text-align: center;
+}
+.resize-p-tag{
+  width: 100px;
+}
+
+.links a{
+  color: #ffff;
+  text-decoration: none;
+}
+
+.links:hover {
+  opacity: 0.8;
+}
