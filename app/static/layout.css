@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap');
 
 body{
   background-color: #F3F4F5;
@@ -19,4 +20,44 @@ body{
 
 .links:hover {
   opacity: 0.8;
+}
+
+#todo{
+  padding: 10px;
+  margin:5px;
+}
+.wrapper{
+  background-color:#1F2328;
+  padding: 20px;
+  margin-bottom: 5px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600px;
+}
+.todo-element{
+  margin: 2px;
+  padding: 20px;
+}
+
+#todo #todo-element{
+  margin: 2px;
+  padding: 20px;
+  background-color: #1F2328;
+}
+
+#todo #todo-element a{
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600px;
+}
+
+.show-links{
+  display: flex;
+  width: 70%;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  justify-content: space-around;
+  padding: 10px;
 }
