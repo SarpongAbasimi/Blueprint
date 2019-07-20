@@ -3,9 +3,9 @@
 {%block content%}
 <div class="container">
   {% if todos| length > 0 %}
-    <ul>
+    <ul id='todo'>
       {% for todo in todos %}
-        <li><a href={{ url_for('post.show', id=todo.id )}}>{{ todo.content }}</a></li>
+        <li id='todo-element'><a href={{ url_for('post.show', id=todo.id )}}>{{ todo.content }}</a></li>
       {% endfor %}
     </ul>
   {% endif%}
