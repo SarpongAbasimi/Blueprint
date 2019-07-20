@@ -3,9 +3,14 @@
 {% block content %}
 <div class="container">
 {% if data %}
-  <span>{{ data.content }}</span>
-  <p class="links resize-p-tag"><a href={{ url_for('post.edit', id=data.id )}}>edit</a></p>
-  <p class="links resize-p-tag"><a href={{ url_for('post.destroy', id=data.id )}}>delete</a></p>
+  <div class="wrapper">
+    <p class="todo-element">{{ data.content }}</p>
+  </div>
+  <div class="show-links">
+    <p class="links resize-p-tag"><a href={{ url_for('post.edit', id=data.id )}}>edit</a></p>
+    <p class="links resize-p-tag"><a href={{ url_for('post.destroy', id=data.id )}}>delete</a></p>
+    <p class="links resize-p-tag"><a href={{ url_for('main.index')}}>Back to home</a></p>  
+  </div>
 {% else %}
   <span> Sorry, the post was not found</span>
   <p class="links resize-p-tag"><a href={{ url_for('main.index')}}>Back to home</a></p>
