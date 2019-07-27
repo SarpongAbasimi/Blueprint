@@ -2,10 +2,9 @@
 
 {% block content %}
   <div class="container">
-    <p>This is the edit page</p>
-    <form action={{ url_for('post.update', id=id) }} method="POST">
-      {{ edit_form.todo }}
-      {{ edit_form.submit }}
+    <form action={{ url_for('post.update', id=id) }} method="POST" class="form">
+      {{ edit_form.todo(class='form form-control') }}
+      {{ edit_form.submit(class='btn btn-warning newsubmit') }}
     </form>
     <p class="links resize-p-tag"><a href={{ url_for('main.index')}}>cancel</a></p>
   </div>
