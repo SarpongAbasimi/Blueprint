@@ -9,7 +9,6 @@ class TestPost(object):
 
   def test_post_new_contains_a_message(self, client):
     response = client.get('/new')
-    assert b'What is on your mind?' in response.data
     assert b'Back to home' in response.data
     
   def test_post_new_allow_user_to_post_toDo_(self, client):
